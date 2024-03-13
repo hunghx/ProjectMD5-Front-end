@@ -23,7 +23,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
+
 <body>
+    <script>
+        const handleLogout = ()=>{
+            localStorage.removeItem("userLogin")
+            location.href = "./login.html"
+        }
+    </script>
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
@@ -90,7 +97,7 @@
                                 
         
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" onclick="handleLogout()">Log out</a>
                             </div>
                         </li>
                     </ul>
