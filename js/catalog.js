@@ -12,13 +12,20 @@
 // + xóa dữ lệu thông qua api và hiển thị lại giao diện sau khi xóa
 // + nghiên cưu về fetch api / axios
 
+let userLogin =JSON.parse(localStorage.getItem("userLogin"));
+if (!userLogin){
+    // chưa dăng nhap
+    location.href = "../login.html"
+}
+
+document.getElementById("displayName").innerText = userLogin.fullName;
 
 let data = [];
 const defaultOptions = {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEyMyIsImlhdCI6MTcxMDE2MzkzNiwiZXhwIjoxNzEwMjUwMzM2fQ.sumO4myJo59aYSIUkzu-M_igFVmhfjVk1zp1BZjNAeRi4Kr7gUsAXHXIZMwvW3Tr5BwsodIEkaU4x_uTdMAIDA",
+        'Authorization': `Bearer ${userLogin.accessToken}`
     }
 };
 const getAllCatalogs = async () => {
